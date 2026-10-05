@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel de administrador y empleado de CRM Andino Perú">
+  <meta name="author" content="Milio Zahid Gomez Varillas">
+  <meta name="keywords" content="CRM, panel, administrador, empleado, CRUD, CRM Andino Perú">
+  <title>Panel de gestión — CRM Andino Perú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CRM Andino</a>
+      <ul>
+        <li><a href="panel.html" class="activo">Panel</a></li>
+        <li><button type="button" id="btn-salir" class="btn-salir">Cerrar sesión</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel-wrap">
+      <p class="kicker" id="rol-etiqueta">Panel</p>
+      <h1>Solicitudes de demo</h1>
+      <p id="total" class="intro-seccion" role="status"></p>
+      <p id="mensaje" class="msg" role="status"></p>
+
+      <!-- NUEVO: reloj de Lima + línea de turnos de 24 h -->
+      <div class="bloque-turnos" id="bloque-turnos" aria-label="Turnos de trabajo">
+        <div class="turnos-cabecera">
+          <div class="reloj-wrap">
+            <span class="reloj" id="reloj" aria-label="Hora actual en Lima">--:--:--</span>
+            <span class="reloj-zona">hora de Lima</span>
+          </div>
+          <p class="turno-actual" id="turno-actual"></p>
+        </div>
+        <div class="linea-turnos" id="linea-turnos" role="img" aria-label="Distribución de los turnos en 24 horas">
+          <div class="seg seg-noche" style="--w:25%"><span>Noche 00–06</span></div>
+          <div class="seg seg-dia" style="--w:33.333%"><span>Día 06–14</span></div>
+          <div class="seg seg-tarde" style="--w:33.333%"><span>Tarde 14–22</span></div>
+          <div class="seg seg-noche" style="--w:8.334%"><span>22–24</span></div>
+          <div class="marcador" id="marcador"></div>
+        </div>
+        <p id="aviso-turno" class="aviso-turno" role="status" hidden></p>
+      </div>
+
+      <!-- NUEVO: equipo (solo administrador) -->
+      <div id="equipo-wrap" hidden>
+        <h2 class="subtitulo">Equipo por turnos</h2>
+        <p class="intro-seccion">Activa o desactiva a cada empleado. Un empleado desactivado solo puede consultar.</p>
+        <div class="equipo" id="equipo"></div>
+      </div>
+
+      <!-- NUEVO: resumen animado -->
+      <div class="stats" id="stats">
+        <div class="stat"><span class="stat-num" data-k="total">0</span><span class="stat-lbl">Total</span></div>
+        <div class="stat st-registrado"><span class="stat-num" data-k="registrado">0</span><span class="stat-lbl">Registradas</span></div>
+        <div class="stat st-atendido"><span class="stat-num" data-k="atendido">0</span><span class="stat-lbl">Atendidas</span></div>
+        <div class="stat st-rechazado"><span class="stat-num" data-k="rechazado">0</span><span class="stat-lbl">Rechazadas</span></div>
+      </div>
+
+      <form id="form-panel">
+        <fieldset>
+          <legend id="titulo-form">Nueva solicitud (atención presencial)</legend>
+          <div class="form-grid">
+            <div>
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required maxlength="100">
+            </div>
+            <div>
+              <label for="empresa">Empresa:</label>
+              <input type="text" id="empresa" name="empresa" required maxlength="100">
+            </div>
+            <div>
+              <label for="correo">Correo electrónico:</label>
+              <input type="email" id="correo" name="correo" required maxlength="120">
+            </div>
+            <div>
+              <label for="usuarios">Usuarios aproximados:</label>
+              <select id="usuarios" name="usuarios">
+                <option value="1-3">1 a 3</option>
+                <option value="4-10">4 a 10</option>
+                <option value="11+">Más de 10</option>
+              </select>
+            </div>
+            <div>
+              <label for="estado">Estado:</label>
+              <select id="estado" name="estado">
+                <option value="registrado">Registrado</option>
+                <option value="atendido">Atendido</option>
+                <option value="rechazado">Rechazado</option>
+              </select>
+            </div>
+            <div id="campo-turno" hidden>
+              <label for="turno">Turno asignado:</label>
+              <select id="turno" name="turno">
+                <option value="dia">Día (06:00 – 14:00)</option>
+                <option value="tarde">Tarde (14:00 – 22:00)</option>
+                <option value="noche">Noche (22:00 – 06:00)</option>
+              </select>
+            </div>
+            <div class="ancho-completo">
+              <label for="mensaje-form">Mensaje:</label>
+              <textarea id="mensaje-form" name="mensaje" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="acciones-form">
+            <button type="submit" id="btn-guardar" class="btn btn-solido">Crear solicitud</button>
+            <button type="button" id="btn-cancelar" class="btn btn-outline" hidden>Cancelar edición</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="filtros" id="filtros">
+        <div class="chips" id="chips-turno" role="group" aria-label="Filtrar por turno" hidden>
+          <button type="button" class="chip activo" data-turno="todos">Todos</button>
+          <button type="button" class="chip" data-turno="dia">Día</button>
+          <button type="button" class="chip" data-turno="tarde">Tarde</button>
+          <button type="button" class="chip" data-turno="noche">Noche</button>
+        </div>
+        <select id="filtro-estado" aria-label="Filtrar por estado">
+          <option value="">Todos los estados</option>
+          <option value="registrado">Registrado</option>
+          <option value="atendido">Atendido</option>
+          <option value="rechazado">Rechazado</option>
+        </select>
+        <input type="search" id="buscar" placeholder="Buscar por nombre, empresa o código" aria-label="Buscar solicitud">
+      </div>
+
+      <div class="tabla-scroll">
+        <table>
+          <caption>Todas las solicitudes de demo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Usuarios</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Origen</th>
+              <th scope="col">Turno</th>
+              <th scope="col">Gestor</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CRM Andino Perú — Gestión de clientes y leads para empresas peruanas</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="funcionalidades.html">Funcionalidades</a>
+      <a href="planes.html">Planes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <p>&copy; 2026 CRM Andino Perú — Proyecto educativo, curso de Diseño Web, Universidad Continental. Desarrollado por Milio Zahid Gomez Varillas.</p>
+  </footer>
+
+  <script type="module" src="js/panel/panel.js"></script>
+</body>
+</html>

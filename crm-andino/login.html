@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inicia sesión o crea tu cuenta en CRM Andino Perú">
+  <meta name="author" content="Milio Zahid Gomez Varillas">
+  <meta name="keywords" content="CRM, login, cuenta, Neon, CRM Andino Perú">
+  <title>Iniciar sesión — CRM Andino Perú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CRM Andino</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html" class="activo">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="login-wrap">
+      <div class="tarjeta">
+        <p class="kicker">Ya tengo cuenta</p>
+        <h1>Iniciar sesión</h1>
+        <form id="form-login">
+          <label for="login-correo">Correo electrónico:</label>
+          <input type="email" id="login-correo" name="correo" required autocomplete="email">
+          <label for="login-clave">Contraseña:</label>
+          <input type="password" id="login-clave" name="contrasena" required autocomplete="current-password">
+          <button type="submit" class="btn btn-solido">Ingresar</button>
+        </form>
+        <p id="msg-login" class="msg" role="status"></p>
+      </div>
+
+      <div class="tarjeta">
+        <p class="kicker">Soy nuevo</p>
+        <h2>Crear cuenta</h2>
+        <form id="form-cuenta">
+          <label for="cuenta-nombre">Nombre completo:</label>
+          <input type="text" id="cuenta-nombre" name="nombre" required maxlength="100" autocomplete="name">
+          <label for="cuenta-correo">Correo electrónico:</label>
+          <input type="email" id="cuenta-correo" name="correo" required maxlength="120" autocomplete="email">
+          <label for="cuenta-clave">Contraseña (mínimo 6 caracteres):</label>
+          <input type="password" id="cuenta-clave" name="contrasena" required minlength="6" autocomplete="new-password">
+          <button type="submit" class="btn btn-outline">Crear cuenta</button>
+        </form>
+        <p id="msg-cuenta" class="msg" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CRM Andino Perú — Gestión de clientes y leads para empresas peruanas</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="funcionalidades.html">Funcionalidades</a>
+      <a href="planes.html">Planes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <p>&copy; 2026 CRM Andino Perú — Proyecto educativo, curso de Diseño Web, Universidad Continental. Desarrollado por Milio Zahid Gomez Varillas.</p>
+  </footer>
+
+  <script type="module" src="js/auth/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planes y precios de CRM Andino Perú">
+  <meta name="author" content="Milio Zahid Gomez Varillas">
+  <meta name="keywords" content="CRM, planes, precios, Emprendedor, Equipo, Empresa, CRM Andino Perú">
+  <title>Planes — CRM Andino Perú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/planes.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CRM Andino</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="planes.html" class="activo">Planes</a></li>
+        <li><a href="como-funciona.html">Cómo funciona</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion-planes">
+
+      <!--
+        Truco CSS-only para el interruptor Mensual/Anual:
+        este checkbox va oculto (ver .switch-facturacion en el CSS) y,
+        como es hermano anterior del resto del contenido de la sección,
+        el selector "#switch-facturacion:checked ~ selector" permite
+        cambiar estilos y textos sin usar JavaScript.
+      -->
+      <input type="checkbox" id="switch-facturacion" class="switch-facturacion" aria-label="Cambiar entre facturación mensual y anual">
+
+      <div class="planes-header">
+        <p class="kicker">Precios</p>
+        <h1>Planes según el tamaño de tu equipo</h1>
+        <p class="intro-seccion">Paga solo por los usuarios que necesitas. Todos los planes incluyen soporte en español y actualizaciones sin costo adicional.</p>
+
+        <div class="billing-toggle">
+          <span class="etiqueta-mensual">Mensual</span>
+          <label for="switch-facturacion" class="toggle-switch">
+            <span class="slider"></span>
+          </label>
+          <span class="etiqueta-anual">Anual <span class="badge-descuento">Ahorra 15%</span></span>
+        </div>
+      </div>
+
+      <div class="planes-cards-grid">
+        <article class="plan-card">
+          <h3>Emprendedor</h3>
+          <p class="plan-descripcion">Negocios que recién ordenan su cartera de clientes.</p>
+          <div class="plan-precio-box">
+            <span class="monto monto-mensual">S/ 89</span>
+            <span class="monto monto-anual">S/ 75</span>
+            <span class="periodo">/ mes</span>
+          </div>
+          <ul class="plan-caracteristicas">
+            <li>Hasta 3 usuarios</li>
+            <li>Seguimiento de leads por etapas</li>
+            <li>Historial de cliente</li>
+            <li>Recordatorios automáticos</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-outline">Solicitar demo</a>
+        </article>
+
+        <article class="plan-card destacado">
+          <span class="badge-popular">Más elegido</span>
+          <h3>Equipo</h3>
+          <p class="plan-descripcion">Equipos comerciales en crecimiento.</p>
+          <div class="plan-precio-box">
+            <span class="monto monto-mensual">S/ 249</span>
+            <span class="monto monto-anual">S/ 212</span>
+            <span class="periodo">/ mes</span>
+          </div>
+          <ul class="plan-caracteristicas">
+            <li>Hasta 10 usuarios</li>
+            <li>Todo lo de Emprendedor</li>
+            <li>Reportes de ventas por vendedor</li>
+            <li>Integración con WhatsApp y correo</li>
+            <li>Acceso por roles</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-solido">Solicitar demo</a>
+        </article>
+
+        <article class="plan-card">
+          <h3>Empresa</h3>
+          <p class="plan-descripcion">Empresas con varias sedes o áreas comerciales.</p>
+          <div class="plan-precio-box">
+            <span class="monto">Personalizado</span>
+          </div>
+          <ul class="plan-caracteristicas">
+            <li>Usuarios ilimitados</li>
+            <li>Todo lo de Equipo</li>
+            <li>Reportes personalizados</li>
+            <li>Soporte prioritario dedicado</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-outline">Conversar con ventas</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CRM Andino Perú — Gestión de clientes y leads para empresas peruanas</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="funcionalidades.html">Funcionalidades</a>
+      <a href="planes.html">Planes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <p>&copy; 2026 CRM Andino Perú — Proyecto educativo, curso de Diseño Web, Universidad Continental. Desarrollado por Milio Zahid Gomez Varillas.</p>
+  </footer>
+
+</body>
+</html>

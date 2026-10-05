@@ -1,0 +1,97 @@
+/* ============================================================
+   CRM Andino Perú — Tema vino oscuro (diseño v2)
+   Solo CSS · vino profundo + dorado · contraste AA · responsive
+   ============================================================ */
+:root{
+  --fondo:#150710; --fondo-2:#1e0a13; --superficie:#2a0f1b; --superficie-2:#361624;
+  --borde:#4d2233; --vino-primario:#8f2a4c; --vino-medio:#c0587a; --vino-claro:#f4cdd9;
+  --acento-texto:#e493b0; --dorado:#d8a53e; --dorado-hover:#ebbb55;
+  --texto:#f8eef1; --sub:#d0b3bc; --muted:#ac8d97;
+  --card:linear-gradient(180deg,#311322,#230c17);
+  --sombra-suave:inset 0 1px 0 rgba(255,255,255,.05),0 12px 32px -12px rgba(0,0,0,.65);
+  --sombra-elevada:inset 0 1px 0 rgba(255,255,255,.07),0 28px 44px -14px rgba(0,0,0,.7),0 0 0 1px rgba(192,88,122,.35);
+  --fuente:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::selection{background:var(--vino-medio);color:#fff}
+:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+body{font-family:var(--fuente);color:var(--texto);line-height:1.65;display:flex;flex-direction:column;min-height:100vh;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 520px at 88% -6%,rgba(143,42,76,.42),transparent 62%),radial-gradient(760px 520px at -8% 42%,rgba(90,20,45,.38),transparent 62%),var(--fondo);background-attachment:fixed}
+main{flex:1}
+
+/* ---------- Encabezado y menú ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(21,7,16,.8);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--borde);box-shadow:0 8px 24px -16px rgba(0,0,0,.8)}
+header nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:14px 24px;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:1.45rem;color:var(--dorado);text-decoration:none;letter-spacing:-.6px}
+header nav ul{list-style:none;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+header nav ul a{color:var(--sub);text-decoration:none;font-size:.94rem;font-weight:500;padding:9px 16px;border-radius:10px;transition:color .2s ease,background-color .2s ease,box-shadow .2s ease}
+header nav ul a:hover{color:var(--texto);background:rgba(143,42,76,.38)}
+header nav ul a.activo{color:var(--dorado);font-weight:700;background:rgba(143,42,76,.42);box-shadow:inset 0 -2px 0 var(--dorado)}
+
+/* ---------- Tipografía y secciones ---------- */
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:var(--acento-texto);font-weight:700;margin-bottom:10px}
+h1{font-size:clamp(2rem,1.2rem + 3vw,3rem);font-weight:800;color:var(--texto);letter-spacing:-.03em;line-height:1.15}
+h2{font-size:clamp(1.7rem,1rem + 2.4vw,2.4rem);font-weight:800;color:var(--texto);letter-spacing:-.025em;line-height:1.2;margin-top:4px}
+.intro-seccion{color:var(--sub);max-width:660px;font-size:1.08rem;margin-top:10px}
+section{max-width:1200px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:12px;text-decoration:none;font:600 .98rem var(--fuente);letter-spacing:.01em;transition:all .25s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-solido{background:linear-gradient(180deg,#e2b24a,var(--dorado));color:#2b0a16;box-shadow:0 6px 20px rgba(216,165,62,.28)}
+.btn-solido:hover{background:linear-gradient(180deg,#f0c463,var(--dorado-hover));transform:translateY(-2px);box-shadow:0 10px 26px rgba(216,165,62,.42)}
+.btn-outline{border:2px solid var(--vino-medio);color:var(--vino-claro);background:transparent}
+.btn-outline:hover{background:rgba(192,88,122,.2);border-color:var(--acento-texto);transform:translateY(-2px)}
+
+/* ---------- Pie ---------- */
+footer{background:linear-gradient(180deg,#12050b,#0b0307);color:var(--texto);text-align:center;padding:44px 24px;margin-top:auto;border-top:1px solid var(--borde)}
+footer nav{display:flex;justify-content:center;gap:8px 28px;margin:18px 0;flex-wrap:wrap}
+footer nav a{color:var(--sub);text-decoration:none;font-size:.95rem;transition:color .2s ease}
+footer nav a:hover{color:var(--dorado)}
+footer p:last-child{color:var(--muted);font-size:.85rem;margin-top:12px}
+
+@keyframes aparecerConfirmacion{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (max-width:640px){header nav{justify-content:center;padding:12px 16px}header nav ul{justify-content:center}header nav ul a{padding:8px 12px;font-size:.9rem}.btn{padding:12px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---------- Específico de la página ---------- */
+.seccion-planes{position:relative}
+.planes-header{text-align:center;max-width:700px;margin:0 auto 40px}
+.planes-header .intro-seccion{margin:12px auto 0}
+/* Interruptor CSS-only: el checkbox real va oculto pero sigue enfocable con teclado */
+.switch-facturacion{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;font-weight:600;font-size:.95rem}
+.etiqueta-mensual,.etiqueta-anual{transition:color .2s ease,opacity .2s ease}
+.etiqueta-mensual{color:var(--dorado);font-weight:700}
+.etiqueta-anual{opacity:.6}
+.toggle-switch{position:relative;display:inline-block;width:52px;height:28px;cursor:pointer}
+.slider{position:absolute;inset:0;background:#4a2030;border:1px solid var(--borde);transition:.3s;border-radius:34px}
+.slider:before{position:absolute;content:"";height:20px;width:20px;left:4px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.4)}
+#switch-facturacion:focus-visible ~ .planes-header .slider{outline:3px solid var(--dorado);outline-offset:2px}
+#switch-facturacion:checked ~ .planes-header .slider{background:var(--dorado)}
+#switch-facturacion:checked ~ .planes-header .slider:before{transform:translateX(24px)}
+#switch-facturacion:checked ~ .planes-header .etiqueta-mensual{color:var(--texto);font-weight:400;opacity:.6}
+#switch-facturacion:checked ~ .planes-header .etiqueta-anual{color:var(--dorado);font-weight:700;opacity:1}
+.monto-anual{display:none}
+#switch-facturacion:checked ~ .planes-cards-grid .monto-mensual{display:none}
+#switch-facturacion:checked ~ .planes-cards-grid .monto-anual{display:inline}
+.badge-descuento{background:rgba(16,185,129,.18);color:#6ee7b7;font-size:.75rem;font-weight:700;padding:4px 8px;border-radius:20px}
+
+.planes-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:stretch;margin-top:20px}
+.plan-card{background:var(--card);border:2px solid var(--borde);border-radius:20px;padding:36px 28px;display:flex;flex-direction:column;position:relative;box-shadow:var(--sombra-suave);transition:all .3s cubic-bezier(.4,0,.2,1)}
+.plan-card:hover{transform:translateY(-8px);box-shadow:var(--sombra-elevada);border-color:var(--vino-medio)}
+.plan-card.destacado{border-color:var(--dorado);background:linear-gradient(180deg,#45142a,#2a0f1b);box-shadow:0 16px 40px -6px rgba(212,161,58,.22)}
+.badge-popular{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--dorado),var(--dorado-hover));color:#2b0a16;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:6px 16px;border-radius:20px;box-shadow:0 4px 12px rgba(212,161,58,.35)}
+.plan-card h3{font-size:1.5rem;color:var(--texto);font-weight:800;margin-bottom:8px}
+.plan-card .plan-descripcion{font-size:.9rem;color:var(--sub);min-height:40px}
+.plan-precio-box{margin:24px 0;display:flex;align-items:baseline;gap:4px}
+.plan-precio-box .monto{font-size:2.8rem;font-weight:800;color:var(--dorado);line-height:1}
+.plan-precio-box .periodo{color:var(--sub);font-size:.95rem;font-weight:500}
+.plan-caracteristicas{list-style:none;margin-bottom:32px;flex:1}
+.plan-caracteristicas li{padding:10px 0;font-size:.93rem;display:flex;align-items:center;gap:10px;border-bottom:1px dashed var(--borde)}
+.plan-caracteristicas li::before{content:"✓";color:#6ee7b7;font-weight:900;font-size:1.1rem}
+.plan-card .btn{width:100%;text-align:center;transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+.plan-card .btn:hover{transform:scale(1.05)}
+.plan-card{padding:38px 30px}

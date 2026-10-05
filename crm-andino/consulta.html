@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta el estado de tus solicitudes de demo">
+  <meta name="author" content="Milio Zahid Gomez Varillas">
+  <meta name="keywords" content="CRM, consulta, solicitudes, estado, CRM Andino Perú">
+  <title>Mis registros — CRM Andino Perú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/consulta.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CRM Andino</a>
+      <ul>
+        <li><a href="registro.html">Solicitar demo</a></li>
+        <li><a href="consulta.html" class="activo">Mis registros</a></li>
+        <li><button type="button" id="btn-salir" class="btn-salir">Cerrar sesión</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="consulta">
+      <p class="kicker">Hola, <span id="saludo"></span></p>
+      <h1>Mis solicitudes de demo</h1>
+      <p id="aviso" class="intro-seccion" role="status"></p>
+      <div class="tabla-scroll">
+        <table>
+          <caption>Solicitudes registradas por ti</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Usuarios</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CRM Andino Perú — Gestión de clientes y leads para empresas peruanas</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="funcionalidades.html">Funcionalidades</a>
+      <a href="planes.html">Planes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <p>&copy; 2026 CRM Andino Perú — Proyecto educativo, curso de Diseño Web, Universidad Continental. Desarrollado por Milio Zahid Gomez Varillas.</p>
+  </footer>
+
+  <script type="module" src="js/consulta/consulta.js"></script>
+</body>
+</html>

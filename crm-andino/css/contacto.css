@@ -1,0 +1,78 @@
+/* ============================================================
+   CRM Andino Perú — Tema vino oscuro (diseño v2)
+   Solo CSS · vino profundo + dorado · contraste AA · responsive
+   ============================================================ */
+:root{
+  --fondo:#150710; --fondo-2:#1e0a13; --superficie:#2a0f1b; --superficie-2:#361624;
+  --borde:#4d2233; --vino-primario:#8f2a4c; --vino-medio:#c0587a; --vino-claro:#f4cdd9;
+  --acento-texto:#e493b0; --dorado:#d8a53e; --dorado-hover:#ebbb55;
+  --texto:#f8eef1; --sub:#d0b3bc; --muted:#ac8d97;
+  --card:linear-gradient(180deg,#311322,#230c17);
+  --sombra-suave:inset 0 1px 0 rgba(255,255,255,.05),0 12px 32px -12px rgba(0,0,0,.65);
+  --sombra-elevada:inset 0 1px 0 rgba(255,255,255,.07),0 28px 44px -14px rgba(0,0,0,.7),0 0 0 1px rgba(192,88,122,.35);
+  --fuente:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::selection{background:var(--vino-medio);color:#fff}
+:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+body{font-family:var(--fuente);color:var(--texto);line-height:1.65;display:flex;flex-direction:column;min-height:100vh;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 520px at 88% -6%,rgba(143,42,76,.42),transparent 62%),radial-gradient(760px 520px at -8% 42%,rgba(90,20,45,.38),transparent 62%),var(--fondo);background-attachment:fixed}
+main{flex:1}
+
+/* ---------- Encabezado y menú ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(21,7,16,.8);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--borde);box-shadow:0 8px 24px -16px rgba(0,0,0,.8)}
+header nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:14px 24px;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:1.45rem;color:var(--dorado);text-decoration:none;letter-spacing:-.6px}
+header nav ul{list-style:none;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+header nav ul a{color:var(--sub);text-decoration:none;font-size:.94rem;font-weight:500;padding:9px 16px;border-radius:10px;transition:color .2s ease,background-color .2s ease,box-shadow .2s ease}
+header nav ul a:hover{color:var(--texto);background:rgba(143,42,76,.38)}
+header nav ul a.activo{color:var(--dorado);font-weight:700;background:rgba(143,42,76,.42);box-shadow:inset 0 -2px 0 var(--dorado)}
+
+/* ---------- Tipografía y secciones ---------- */
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:var(--acento-texto);font-weight:700;margin-bottom:10px}
+h1{font-size:clamp(2rem,1.2rem + 3vw,3rem);font-weight:800;color:var(--texto);letter-spacing:-.03em;line-height:1.15}
+h2{font-size:clamp(1.7rem,1rem + 2.4vw,2.4rem);font-weight:800;color:var(--texto);letter-spacing:-.025em;line-height:1.2;margin-top:4px}
+.intro-seccion{color:var(--sub);max-width:660px;font-size:1.08rem;margin-top:10px}
+section{max-width:1200px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:12px;text-decoration:none;font:600 .98rem var(--fuente);letter-spacing:.01em;transition:all .25s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-solido{background:linear-gradient(180deg,#e2b24a,var(--dorado));color:#2b0a16;box-shadow:0 6px 20px rgba(216,165,62,.28)}
+.btn-solido:hover{background:linear-gradient(180deg,#f0c463,var(--dorado-hover));transform:translateY(-2px);box-shadow:0 10px 26px rgba(216,165,62,.42)}
+.btn-outline{border:2px solid var(--vino-medio);color:var(--vino-claro);background:transparent}
+.btn-outline:hover{background:rgba(192,88,122,.2);border-color:var(--acento-texto);transform:translateY(-2px)}
+
+/* ---------- Pie ---------- */
+footer{background:linear-gradient(180deg,#12050b,#0b0307);color:var(--texto);text-align:center;padding:44px 24px;margin-top:auto;border-top:1px solid var(--borde)}
+footer nav{display:flex;justify-content:center;gap:8px 28px;margin:18px 0;flex-wrap:wrap}
+footer nav a{color:var(--sub);text-decoration:none;font-size:.95rem;transition:color .2s ease}
+footer nav a:hover{color:var(--dorado)}
+footer p:last-child{color:var(--muted);font-size:.85rem;margin-top:12px}
+
+@keyframes aparecerConfirmacion{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (max-width:640px){header nav{justify-content:center;padding:12px 16px}header nav ul{justify-content:center}header nav ul a{padding:8px 12px;font-size:.9rem}.btn{padding:12px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---------- Específico de la página ---------- */
+#contacto p{color:var(--sub);font-size:1.05rem;margin-top:12px;line-height:1.8}
+#contacto form{background:var(--card);padding:clamp(24px,4vw,40px);border-radius:22px;border:1px solid var(--borde);box-shadow:var(--sombra-suave);display:flex;flex-direction:column;margin-top:0}
+#contacto label{margin-top:16px;font-weight:600;font-size:.9rem;color:var(--vino-claro)}
+#contacto label:first-of-type{margin-top:0}
+#contacto input,#contacto select,#contacto textarea{padding:12px 16px;margin-top:6px;border-radius:10px;border:1px solid var(--borde);font:.95rem var(--fuente);color:var(--texto);background:var(--fondo-2);transition:all .2s ease}
+#contacto input:focus,#contacto select:focus,#contacto textarea:focus{outline:none;border-color:var(--dorado);background:#26101a;box-shadow:0 0 0 4px rgba(212,161,58,.16)}
+#contacto input[type="submit"]{margin-top:24px;background:var(--dorado);color:#2b0a16;border:none;padding:14px;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:all .25s ease;box-shadow:0 4px 16px rgba(212,161,58,.3)}
+#contacto input[type="submit"]:hover{background:var(--dorado-hover);transform:translateY(-2px);box-shadow:0 8px 22px rgba(212,161,58,.42)}
+/* Confirmación sin JavaScript: se muestra con :target y reutiliza la animación de la Semana 5 */
+.confirmacion-msg{display:none;margin-top:20px;padding:16px 20px;background:rgba(16,185,129,.14);border:1px solid rgba(16,185,129,.4);color:#86efac;border-radius:12px;font-weight:600}
+#confirmacion:target{display:block;animation:aparecerConfirmacion .5s ease both}
+#contacto fieldset{border:none;min-width:0;display:flex;flex-direction:column}
+#contacto legend{font-weight:700;color:var(--vino-claro);margin-bottom:12px;padding:0}
+/* Dos columnas: datos de contacto a la izquierda, formulario a la derecha */
+#contacto{display:grid;grid-template-columns:1fr 1.25fr;grid-template-rows:auto auto auto 1fr;gap:0 clamp(32px,6vw,72px);align-items:start}
+#contacto>.kicker,#contacto>h1,#contacto>p{grid-column:1}
+#contacto>form{grid-column:2;grid-row:1/span 4}
+#contacto>.confirmacion-msg{grid-column:2}
+@media (max-width:860px){#contacto{grid-template-columns:1fr;grid-template-rows:none}#contacto>form,#contacto>.confirmacion-msg{grid-column:1;grid-row:auto;margin-top:28px}}

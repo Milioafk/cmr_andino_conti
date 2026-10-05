@@ -1,0 +1,96 @@
+/* ============================================================
+   CRM Andino Perú — Tema vino oscuro (diseño v2)
+   Solo CSS · vino profundo + dorado · contraste AA · responsive
+   ============================================================ */
+:root{
+  --fondo:#150710; --fondo-2:#1e0a13; --superficie:#2a0f1b; --superficie-2:#361624;
+  --borde:#4d2233; --vino-primario:#8f2a4c; --vino-medio:#c0587a; --vino-claro:#f4cdd9;
+  --acento-texto:#e493b0; --dorado:#d8a53e; --dorado-hover:#ebbb55;
+  --texto:#f8eef1; --sub:#d0b3bc; --muted:#ac8d97;
+  --card:linear-gradient(180deg,#311322,#230c17);
+  --sombra-suave:inset 0 1px 0 rgba(255,255,255,.05),0 12px 32px -12px rgba(0,0,0,.65);
+  --sombra-elevada:inset 0 1px 0 rgba(255,255,255,.07),0 28px 44px -14px rgba(0,0,0,.7),0 0 0 1px rgba(192,88,122,.35);
+  --fuente:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::selection{background:var(--vino-medio);color:#fff}
+:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+body{font-family:var(--fuente);color:var(--texto);line-height:1.65;display:flex;flex-direction:column;min-height:100vh;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 520px at 88% -6%,rgba(143,42,76,.42),transparent 62%),radial-gradient(760px 520px at -8% 42%,rgba(90,20,45,.38),transparent 62%),var(--fondo);background-attachment:fixed}
+main{flex:1}
+
+/* ---------- Encabezado y menú ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(21,7,16,.8);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--borde);box-shadow:0 8px 24px -16px rgba(0,0,0,.8)}
+header nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:14px 24px;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:1.45rem;color:var(--dorado);text-decoration:none;letter-spacing:-.6px}
+header nav ul{list-style:none;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+header nav ul a{color:var(--sub);text-decoration:none;font-size:.94rem;font-weight:500;padding:9px 16px;border-radius:10px;transition:color .2s ease,background-color .2s ease,box-shadow .2s ease}
+header nav ul a:hover{color:var(--texto);background:rgba(143,42,76,.38)}
+header nav ul a.activo{color:var(--dorado);font-weight:700;background:rgba(143,42,76,.42);box-shadow:inset 0 -2px 0 var(--dorado)}
+
+/* ---------- Tipografía y secciones ---------- */
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:var(--acento-texto);font-weight:700;margin-bottom:10px}
+h1{font-size:clamp(2rem,1.2rem + 3vw,3rem);font-weight:800;color:var(--texto);letter-spacing:-.03em;line-height:1.15}
+h2{font-size:clamp(1.7rem,1rem + 2.4vw,2.4rem);font-weight:800;color:var(--texto);letter-spacing:-.025em;line-height:1.2;margin-top:4px}
+.intro-seccion{color:var(--sub);max-width:660px;font-size:1.08rem;margin-top:10px}
+section{max-width:1200px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:12px;text-decoration:none;font:600 .98rem var(--fuente);letter-spacing:.01em;transition:all .25s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-solido{background:linear-gradient(180deg,#e2b24a,var(--dorado));color:#2b0a16;box-shadow:0 6px 20px rgba(216,165,62,.28)}
+.btn-solido:hover{background:linear-gradient(180deg,#f0c463,var(--dorado-hover));transform:translateY(-2px);box-shadow:0 10px 26px rgba(216,165,62,.42)}
+.btn-outline{border:2px solid var(--vino-medio);color:var(--vino-claro);background:transparent}
+.btn-outline:hover{background:rgba(192,88,122,.2);border-color:var(--acento-texto);transform:translateY(-2px)}
+
+/* ---------- Pie ---------- */
+footer{background:linear-gradient(180deg,#12050b,#0b0307);color:var(--texto);text-align:center;padding:44px 24px;margin-top:auto;border-top:1px solid var(--borde)}
+footer nav{display:flex;justify-content:center;gap:8px 28px;margin:18px 0;flex-wrap:wrap}
+footer nav a{color:var(--sub);text-decoration:none;font-size:.95rem;transition:color .2s ease}
+footer nav a:hover{color:var(--dorado)}
+footer p:last-child{color:var(--muted);font-size:.85rem;margin-top:12px}
+
+@keyframes aparecerConfirmacion{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (max-width:640px){header nav{justify-content:center;padding:12px 16px}header nav ul{justify-content:center}header nav ul a{padding:8px 12px;font-size:.9rem}.btn{padding:12px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---------- Componentes de las páginas con base de datos ---------- */
+a{color:var(--dorado)}
+.btn-salir{color:var(--sub);font:500 .94rem var(--fuente);padding:8px 16px;border-radius:10px;background:none;border:1px solid var(--borde);cursor:pointer;transition:all .2s ease}
+.btn-salir:hover{color:var(--texto);background:rgba(143,42,76,.38);border-color:var(--vino-medio)}
+.btn-sm{padding:7px 14px;font-size:.84rem;border-radius:9px}
+.btn-peligro{border:2px solid #d9575f;color:#fda4a4;background:transparent}
+.btn-peligro:hover{background:rgba(239,68,68,.16);transform:translateY(-2px)}
+form{background:var(--card);padding:clamp(22px,4vw,36px);border-radius:22px;border:1px solid var(--borde);box-shadow:var(--sombra-suave);display:flex;flex-direction:column;margin-top:28px}
+form[hidden]{display:none}
+fieldset{border:none;min-width:0}
+legend{font-weight:700;color:var(--vino-claro);margin-bottom:6px;font-size:1.02rem}
+label{margin-top:18px;display:block;font-weight:600;font-size:.88rem;color:var(--vino-claro);letter-spacing:.01em}
+input,select,textarea{width:100%;min-height:46px;padding:12px 16px;margin-top:7px;border-radius:12px;border:1px solid var(--borde);font:.96rem var(--fuente);color:var(--texto);background:var(--fondo-2);transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+input:hover,select:hover,textarea:hover{border-color:#6a3148}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--dorado);background:#26101a;box-shadow:0 0 0 4px rgba(216,165,62,.18)}
+form .btn{margin-top:26px}
+.tabla-scroll{overflow:auto;margin-top:28px;border:1px solid var(--borde);border-radius:18px;background:var(--superficie);box-shadow:var(--sombra-suave)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+caption{text-align:left;padding:18px 22px;font-weight:700;color:var(--vino-claro);font-size:1.02rem}
+th,td{padding:13px 18px;text-align:left;border-top:1px solid var(--borde);white-space:nowrap}
+th{background:#3a1626;color:var(--vino-claro);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;position:sticky;top:0;z-index:1}
+tbody tr{transition:background-color .2s ease}
+tbody tr:nth-child(even){background:rgba(255,255,255,.025)}
+tbody tr:hover{background:var(--superficie-2)}
+.estado{display:inline-block;padding:3px 12px;border-radius:999px;font-size:.78rem;font-weight:700;text-transform:capitalize}
+.estado-registrado{background:rgba(59,130,246,.2);color:#a5cbfd}
+.estado-atendido{background:rgba(16,185,129,.2);color:#7ee7bd}
+.estado-rechazado{background:rgba(239,68,68,.2);color:#fdb0b0}
+/* Mensaje de éxito/error: reutiliza la animación de confirmación de la Semana 5 */
+.msg{display:none;margin-top:22px;padding:14px 20px;border-radius:14px;font-weight:600}
+.msg.visible{display:block;animation:aparecerConfirmacion .5s ease both}
+.msg.ok{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.45);color:#9cf0c4}
+.msg.error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.45);color:#fdb0b0}
+@media (max-width:640px){.btn-salir{padding:8px 12px;font-size:.9rem}}
+
+/* ---------- Específico de la página ---------- */
+.formulario{max-width:720px}

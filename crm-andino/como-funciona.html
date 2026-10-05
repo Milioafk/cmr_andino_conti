@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cómo funciona CRM Andino Perú">
+  <meta name="author" content="Milio Zahid Gomez Varillas">
+  <meta name="keywords" content="CRM, cómo funciona, demo, configuración, equipo de ventas">
+  <title>Cómo Funciona — CRM Andino Perú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/como-funciona.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CRM Andino</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="planes.html">Planes</a></li>
+        <li><a href="como-funciona.html" class="activo">Cómo funciona</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p class="kicker">Cómo funciona</p>
+      <h1>De la demo a tu primer reporte de ventas</h1>
+
+      <div class="pasos-grid">
+        <article class="paso-card">
+          <span class="paso-numero">1</span>
+          <h3>Solicita tu demo</h3>
+          <p>Completa el formulario de contacto y un especialista te muestra el sistema según tu rubro.</p>
+        </article>
+
+        <article class="paso-card">
+          <span class="paso-numero">2</span>
+          <h3>Configura tu equipo</h3>
+          <p>Importa tus contactos actuales y define los roles de cada vendedor o supervisor.</p>
+        </article>
+
+        <article class="paso-card">
+          <span class="paso-numero">3</span>
+          <h3>Empieza a vender</h3>
+          <p>Tu equipo registra leads desde el primer día y tú ves el avance en tiempo real desde el panel de reportes.</p>
+        </article>
+      </div>
+
+      <!--
+        PON AQUÍ TU IMAGEN: una captura del formulario de importación de
+        contactos, o una foto de una capacitación/onboarding de equipo.
+        Reemplaza cada "srcset" por tus propios archivos en img/:
+        - img/onboarding-ancho.jpg para pantallas grandes (min-width 768px)
+        - img/onboarding-angosto.jpg como imagen de respaldo (fallback)
+      -->
+      <picture>
+        <source media="(min-width: 768px)"
+                srcset="img/onboarding-ancho.jpg">
+        <source media="(max-width: 767px)"
+                srcset="img/onboarding-angosto.jpg">
+        <img src="img/onboarding-ancho.jpg"
+             alt="Proceso de configuración e implementación de CRM Andino" class="proceso-img">
+      </picture>
+    </section>
+  </main>
+
+  <footer>
+    <p>CRM Andino Perú — Gestión de clientes y leads para empresas peruanas</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="funcionalidades.html">Funcionalidades</a>
+      <a href="planes.html">Planes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <p>&copy; 2026 CRM Andino Perú — Proyecto educativo, curso de Diseño Web, Universidad Continental. Desarrollado por Milio Zahid Gomez Varillas.</p>
+  </footer>
+
+</body>
+</html>
